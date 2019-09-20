@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import data from '../sheet-arti.json'
 
 export default {
 	data () {
@@ -30,10 +30,7 @@ export default {
         }
     },
 	mounted() {
-		axios.get("../../static/sheet-arti.json")
-		.then(response => {
-			this.dataIstilah = response.data
-		})		
+		this.dataIstilah = data
 	},
 	computed: {
         filteredList() {
@@ -77,21 +74,20 @@ export default {
 		width: 100%;
 		position: fixed;
 		top: 0;
-		width: 100%;
 		display: flex;
 		z-index: 99;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+		background: #2886c8;
 	}
 
 	.search input {
-		width: 100%;
-		border: none;
-		border-right: none;
-		padding: 15px 25px;
-		outline: none;
 		background: #2886c8;
+		border: none;
+		padding: 15px 20px;
+		outline: none;
 		color: #fff;
 		font-size: 2rem;
+		width: 100%;
 	}
 
 	.search-button {
@@ -99,6 +95,7 @@ export default {
 		text-align: center;
 		background: #2886c8;
 		border: none;
+		padding: 0;
 	}
 
 	.search-button svg {
